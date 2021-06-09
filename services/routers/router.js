@@ -7,9 +7,13 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 // Import controllers
-const targetController = require('../controllers/target.controller');
-const playedTargetController = require('../controllers/playedTarget.controller');
 const locationController = require('../controllers/location.controller');
+const locationScoreController = require('../controllers/locationScore.controller');
+const playedTargetController = require('../controllers/playedTarget.controller');
+const playedTargetScoreController = require('../controllers/playedTargetScores.controller');
+const targetController = require('../controllers/target.controller');
+const targetLocationController = require('../controllers/targetLocationController');
+const targetScoreController = require('../controllers/targetScore.controller');
 
 //#region target
 router
@@ -23,16 +27,16 @@ router
   .delete(targetController.delete)
 router
   .route('/target/:target_id/score')
-  .get(targetController.getScores);
+  .get(targetScoreController.getScores);
 router
   .route('/target/:target_id/score/:score_id')
-  .get(targetController.getScore);
+  .get(targetScoreController.getScore);
 router
   .route('/target/:target_id/score/:score_id/tag/:tag_id')
-  .get(targetController.getScoreTag);
+  .get(targetScoreController.getScoreTag);
 router
   .route('/target/:target_id/score/:score_id/tag')
-  .get(targetController.getScoreTags);
+  .get(targetScoreController.getScoreTags);
 router
   .route('/target/:target_id/hints/:hint_id')
   .get(targetController.getHint);
@@ -53,16 +57,16 @@ router
   .get(playedTargetController.uploadedTo);
 router
   .route('/playedTarget/:playedTarget_id/score/:score_id')
-  .get(playedTargetController.getScore);
+  .get(playedTargetScoreController.getScore);
 router
   .route('/playedTarget/:playedTarget_id/score')
-  .get(playedTargetController.getScores);
+  .get(playedTargetScoreController.getScores);
 router
   .route('/playedTarget/:playedTarget_id/score/:score_id/tag')
-  .get(playedTargetController.getScoreTags);
+  .get(playedTargetScoreController.getScoreTags);
 router
   .route('/playedTarget/:playedTarget_id/score/:score_id/tag/:tag_id')
-  .get(playedTargetController.getScoreTag);
+  .get(playedTargetScoreController.getScoreTag);
 //#endregion
 
 //#region location
@@ -73,33 +77,33 @@ router
 router
   .route('/location/:location_id')
   .get(locationController.view)
-  .post(locationController.addTarget)
+  .post(targetLocationController.addTarget)
   .put(locationController.update)
   .delete(locationController.delete);
 router
   .route('/location/:location_id/target/:target_id/')
-  .get(locationController.getTarget);
+  .get(targetLocationController.getTarget);
 router
   .route('/location/:location_id/target')
-  .get(locationController.getTargets);
+  .get(targetLocationController.getTargets);
 router
   .route('/location/:location_id/target/:target_id/hints/:hint_id')
-  .get(locationController.getHint);
+  .get(targetLocationController.getHint);
 router
   .route('/location/:location_id/target/:target_id/score/:score_id')
-  .get(locationController.getScore);
+  .get(locationScoreController.getScore);
 router
   .route('/location/:location_id/target/:target_id/score')
-  .get(locationController.getScores);
+  .get(locationScoreController.getScores);
 router
   .route('/location/:location_id/target/:target_id/score/:score_id/tag/:tag_id')
-  .get(locationController.getScoreTag);
+  .get(locationScoreController.getScoreTag);
 router
   .route('/location/:location_id/target/:target_id/score/:score_id/tag')
-  .get(locationController.getScoreTags);
+  .get(locationScoreController.getScoreTags);
 router
   .route('/location/target/:target_id')
-  .get(locationController.belongsTo);
+  .get(targetLocationController.belongsTo);
 //#endregion
 
 router.post(
