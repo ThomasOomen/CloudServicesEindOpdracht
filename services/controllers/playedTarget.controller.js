@@ -91,7 +91,7 @@ exports.new = (req, res) => {
         if (err) {
             res.status(400).json({
                 status: 'error',
-                error: TargetError,
+                error: err,
             });
         }
         else {
