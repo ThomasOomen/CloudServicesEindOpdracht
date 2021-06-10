@@ -81,7 +81,7 @@ router
   .put(locationController.update)
   .delete(targetLocationController.delete);
 router
-  .route('/location/:location_id/target/:target_id/')
+  .route('/location/:location_id/target/:target_id')
   .get(targetLocationController.getTarget);
 router
   .route('/location/:location_id/target')
