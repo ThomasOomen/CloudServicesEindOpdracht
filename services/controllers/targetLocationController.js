@@ -72,7 +72,7 @@ exports.getTargets = (req, res) => {
         else {
             if (location['targets'].length > 0) {
                 res.status(200).sendData(JSON.stringify({
-                    message: 'PlayedTarget details loading..',
+                    message: 'Targets details loading..',
                     data: location['targets'],
                 }));
             }
