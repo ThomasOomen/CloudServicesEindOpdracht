@@ -32,11 +32,11 @@ router
   .route('/target/:target_id/score/:score_id')
   .get(targetScoreController.getScore);
 router
-  .route('/target/:target_id/score/:score_id/tag/:tag_id')
-  .get(targetScoreController.getScoreTag);
-router
   .route('/target/:target_id/score/:score_id/tag')
   .get(targetScoreController.getScoreTags);
+router
+  .route('/target/:target_id/score/:score_id/tag/:tag_id')
+  .get(targetScoreController.getScoreTag);
 router
   .route('/target/:target_id/hints/:hint_id')
   .get(targetController.getHint);
@@ -50,7 +50,7 @@ router
 router
   .route('/playedTarget/:playedTarget_id')
   .get(playedTargetController.view)
-  .put(playedTargetController.update)  
+  .put(playedTargetController.update)
   .delete(playedTargetController.delete);
 router
   .route('/playedTarget/target/:target_id')
