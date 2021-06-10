@@ -56,11 +56,11 @@ router
   .route('/playedTarget/target/:target_id')
   .get(playedTargetController.uploadedTo);
 router
-  .route('/playedTarget/:playedTarget_id/score/:score_id')
-  .get(playedTargetScoreController.getScore);
-router
   .route('/playedTarget/:playedTarget_id/score')
   .get(playedTargetScoreController.getScores);
+router
+  .route('/playedTarget/:playedTarget_id/score/:score_id')
+  .get(playedTargetScoreController.getScore);
 router
   .route('/playedTarget/:playedTarget_id/score/:score_id/tag')
   .get(playedTargetScoreController.getScoreTags);
