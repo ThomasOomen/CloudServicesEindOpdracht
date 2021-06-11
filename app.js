@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const passport = require('passport');
 const bodyParser = require('body-parser');
 
-require('./authentication/authentication');
+require('./services/authentication/authentication');
 
-const router = require("./routers/router");
-const secureRoute = require('./routers/secureRoutes');
-const adminRoute = require('./routers/secureAdminRoutes');
+const router = require("./services/routers/router");
+const secureRoute = require('./services/routers/secureRoutes');
+const adminRoute = require('./services/routers/secureAdminRoutes');
 
 const { toXML } = require('jstoxml');
 
