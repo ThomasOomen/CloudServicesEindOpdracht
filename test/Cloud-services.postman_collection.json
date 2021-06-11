@@ -1,0 +1,1561 @@
+{
+	"info": {
+		"_postman_id": "9983bcfa-958d-4288-989b-1c8d735be0d5",
+		"name": "Cloud-services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "/location",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location/",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// var jsonData = JSON.parse(responseBody);\r",
+											"// postman.setEnvironmentVariable(\"eiffel_tower_without_hints_location_id\", jsonData.data._id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"locationName\": \"Paris\",\r\n    \"long\": 48.858370,\r\n    \"lat\": 2.294481,\r\n    \"range\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new with hint",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"eiffel_tower_with_hints_location_id\", jsonData.data._id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"locationName\": \"Paris\",\r\n    \"long\": 48.858370,\r\n    \"lat\": 2.294481,\r\n    \"range\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id",
+					"item": [
+						{
+							"name": "view",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/:location_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										":location_id"
+									],
+									"variable": [
+										{
+											"key": "location_id",
+											"value": "{{eiffel_tower_without_hints_location_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTarget",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"target_id\": \"{{eiffel_tower_target_without_hints_id}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location/:location_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										":location_id"
+									],
+									"variable": [
+										{
+											"key": "location_id",
+											"value": "{{eiffel_tower_without_hints_location_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTarget with hint",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"target_id\": \"{{eiffel_tower_target_with_hints_id}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location/:location_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										":location_id"
+									],
+									"variable": [
+										{
+											"key": "location_id",
+											"value": "{{eiffel_tower_with_hints_location_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_without_hints_location_id}}",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_without_hints_location_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"postman.setEnvironmentVariable(\"eiffel_tower_without_hints_location_id\", null);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_without_hints_location_id}}",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_without_hints_location_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id",
+					"item": [
+						{
+							"name": "getTarget",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_without_hints_location_id}}/target/{{eiffel_tower_target_without_hints_id}}",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_without_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_without_hints_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTarget with hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target",
+					"item": [
+						{
+							"name": "getTargets",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_without_hints_location_id}}/target/",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_without_hints_location_id}}",
+										"target",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTargets with hint",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id/hints/:hint_id",
+					"item": [
+						{
+							"name": "getHint",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}/hints/:hint_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}",
+										"hints",
+										":hint_id"
+									],
+									"variable": [
+										{
+											"key": "hint_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id/score/:score_id",
+					"item": [
+						{
+							"name": "getScore",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_without_hints_location_id}}/target/{{eiffel_tower_target_without_hints_id}}/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_without_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_without_hints_id}}",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "score_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getScore with hint",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "score_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id/score",
+					"item": [
+						{
+							"name": "getScores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "score_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id/score/:score_id/tag/:tag_id",
+					"item": [
+						{
+							"name": "getScoreTag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "score_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/:location_id/target/:target_id/score/:score_id/tag",
+					"item": [
+						{
+							"name": "getScoreTags",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/{{eiffel_tower_with_hints_location_id}}/target/{{eiffel_tower_target_with_hints_id}}/score/:score_id/tag",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"{{eiffel_tower_with_hints_location_id}}",
+										"target",
+										"{{eiffel_tower_target_with_hints_id}}",
+										"score",
+										":score_id",
+										"tag"
+									],
+									"variable": [
+										{
+											"key": "score_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/location/target/:target_id",
+					"item": [
+						{
+							"name": "belongsTo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/location/target/:target_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"location",
+										"target",
+										":target_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_without_hints_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "POST create user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{user_username}}\",\r\n    \"password\": \"{{user_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/signup?role=user",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"signup"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "user"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET login user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"secret_token_user\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{user_username}}\",\r\n    \"password\": \"{{user_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/login",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET check auth user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{heroku_url}}user/profile?secret_token={{secret_token_user}}",
+									"host": [
+										"{{heroku_url}}user"
+									],
+									"path": [
+										"profile"
+									],
+									"query": [
+										{
+											"key": "secret_token",
+											"value": "{{secret_token_user}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "POST create admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{admin_username}}\",\r\n    \"password\": \"{{admin_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/signup?role=admin",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"signup"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET login admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"secret_token_admin\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"{{admin_username}}\",\r\n    \"password\": \"{{admin_password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/login",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET check auth admin",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}admin/profile?secret_token={{secret_token_admin}}",
+									"host": [
+										"{{heroku_url}}admin"
+									],
+									"path": [
+										"profile"
+									],
+									"query": [
+										{
+											"key": "secret_token",
+											"value": "{{secret_token_admin}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Target",
+			"item": [
+				{
+					"name": "/target",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new eiffel tower without hints",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"eiffel_tower_target_without_hints_id\", jsonData.data._id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Eiffel tower\",\r\n    \"description\": \" \",\r\n    \"picture\": \"{{eiffel_tower_img_1}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/target",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new eiffel tower with hints",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"eiffel_tower_target_with_hints_id\", jsonData.data._id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Eiffel tower\",\r\n    \"description\": \" \",\r\n    \"picture\": \"{{eiffel_tower_img_1}}\",\r\n    \"hints\": [\r\n        \"Middle of Paris\", \"Very high\", \"Metal\", \"France\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/target",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id",
+					"item": [
+						{
+							"name": "view eiffel tower without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update eiffel tower without hints",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \"Eiffel tower\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete eiffel tower without hints",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"postman.setEnvironmentVariable(\"eiffel_tower_target_without_hints_id\", null);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "eiffel_tower_target_without_hints_id"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id/score",
+					"item": [
+						{
+							"name": "getScores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id/score",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id",
+										"score"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id/score/:score_id",
+					"item": [
+						{
+							"name": "getScore first score from eiffel tower without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id/score/:score_id/tag",
+					"item": [
+						{
+							"name": "getScoreTags from eiffel tower without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id/score/:score_id/tag",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id",
+										"score",
+										":score_id",
+										"tag"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id/score/:score_id/tag/:tag_id",
+					"item": [
+						{
+							"name": "getScoreTag from first score from eiffel tower without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id/score/:score_id/tag/:tag_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id",
+										"score",
+										":score_id",
+										"tag",
+										":tag_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_id}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										},
+										{
+											"key": "tag_id",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/target/:target_id/hints/:hint_id",
+					"item": [
+						{
+							"name": "getHint from eiffel tower with hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/target/:target_id/hints/:hint_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"target",
+										":target_id",
+										"hints",
+										":hint_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_with_hints_target_id}}"
+										},
+										{
+											"key": "hint_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "playedTarget",
+			"item": [
+				{
+					"name": "/playedTarget",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new playedTarget on eiffel tower without hints",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);\r",
+											"postman.setEnvironmentVariable(\"playedTarget_on_target_without_hints\", jsonData.data._id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"picture\": \"{{eiffel_tower_img_2}}\",\r\n    \"target\": \"{{eiffel_tower_target_without_hints_id}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/:playedTarget_id",
+					"item": [
+						{
+							"name": "view playedTarget on eiffel tower without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "put playedTarget on eiffel tower without hints",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"target\": \"{{eiffel_tower_target_without_hints_id}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete playedTarget on eiffel tower without hints",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"postman.setEnvironmentVariable(\"playedTarget_on_target_without_hints\", null);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/target/:target_id",
+					"item": [
+						{
+							"name": "uploadedTo to target without hint",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/target/:target_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										"target",
+										":target_id"
+									],
+									"variable": [
+										{
+											"key": "target_id",
+											"value": "{{eiffel_tower_target_without_hints_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/:playedTarget_id/score",
+					"item": [
+						{
+							"name": "getScores from played target",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id/score",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id",
+										"score"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/:playedTarget_id/score/:score_id",
+					"item": [
+						{
+							"name": "getScore get first score from playedTarget without hints",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id/score/:score_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id",
+										"score",
+										":score_id"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/:playedTarget_id/score/:score_id/tag",
+					"item": [
+						{
+							"name": "getScoreTags get tags",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id/score/:score_id/tag",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id",
+										"score",
+										":score_id",
+										"tag"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/playedTarget/:playedTarget_id/score/:score_id/tag/:tag_id",
+					"item": [
+						{
+							"name": "getScoreTag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{heroku_url}}services/playedTarget/:playedTarget_id/score/:score_id/tag/:tag_id",
+									"host": [
+										"{{heroku_url}}services"
+									],
+									"path": [
+										"playedTarget",
+										":playedTarget_id",
+										"score",
+										":score_id",
+										"tag",
+										":tag_id"
+									],
+									"variable": [
+										{
+											"key": "playedTarget_id",
+											"value": "{{playedTarget_on_target_without_hints}}"
+										},
+										{
+											"key": "score_id",
+											"value": "0"
+										},
+										{
+											"key": "tag_id",
+											"value": "en"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Filter request for location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{heroku_url}}services/location?name=Paris&range=5",
+					"host": [
+						"{{heroku_url}}services"
+					],
+					"path": [
+						"location"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Paris"
+						},
+						{
+							"key": "range",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
