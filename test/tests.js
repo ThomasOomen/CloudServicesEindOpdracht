@@ -2,16 +2,16 @@ const chai = require('chai')
 const chaiHttp = require('chai-http')
 const expect = require('chai').expect;
 const should = require('chai').should();
-const LocationModel = require('../models/location.model')
-const TargetModel = require('../models/target.model')
-const PlayedTarget = require('../models/playedTarget.model')
-const UserModel = require('../models/user.model')
+const LocationModel = require('../services/models/location.model')
+const TargetModel = require('../services/models/target.model')
+const PlayedTarget = require('../services/models/playedTarget.model')
+const UserModel = require('../services/models/user.model')
 const bodyParser = require('body-parser')
 
 const app = require('express')();
 chai.use(chaiHttp);
 
-require('../authentication/authentication');
+require('../services/authentication/authentication');
 
 const dbHandler = require('./db-handler');
 app.use(function (req, res, next) {
@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(require('../routers/router'));
+app.use(require('../services/routers/router'));
 
 function sendData(obj, req, res) {
 	if (req.accepts('json') || req.accepts('text/html')) {

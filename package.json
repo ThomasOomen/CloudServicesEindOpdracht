@@ -14,6 +14,7 @@
     "mongodb": "^3.6.8",
     "mongodb-memory-server": "^6.9.6",
     "mongoose": "^5.12.10",
+    "nyc": "^15.1.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
@@ -28,7 +29,7 @@
     "request": "^2.88.2"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "nyc mocha",
     "start": "node app.js"
   },
   "repository": {
